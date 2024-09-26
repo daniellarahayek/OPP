@@ -1,3 +1,6 @@
+import com.ejercicio.oop.calculos.CalculadoraDeTiempo;
+import com.ejercicio.oop.calculos.FiltroRecomendacion;
+import com.ejercicio.oop.modelos.Episodio;
 import com.ejercicio.oop.modelos.Pelicula;
 import com.ejercicio.oop.modelos.Series;
 
@@ -26,6 +29,29 @@ public class Principal {
 
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
+
+        Pelicula otrapeli = new Pelicula();
+        otrapeli.setNombre("matriz");
+        otrapeli.setFechaDeLanzamiento(1998);
+        otrapeli.setDuracionEnMinutos(180);
+
+        otrapeli.muestraFichaTecnica();
+
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDragon);
+        calculadora.incluye(otrapeli);
+        System.out.println("tiempo necesario para ver tus titulos estas vacaciones: " + calculadora.getTiempoTotal() + " minutos");
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(miPelicula);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("la Casa del papi");
+        episodio.setSerie(casaDragon);
+        episodio.setTotalVisualizaciones(50);
+
+        filtroRecomendacion.filtra(episodio);
 
 
     }
